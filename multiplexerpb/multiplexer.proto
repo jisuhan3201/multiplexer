@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+package multiplexer;
+option go_package="./multiplexer/multiplexerpb";
+
+message GLogRequest {
+    string id=1;
+    string type=2;
+}
+
+message GLogResponse {
+    string result=1;
+}
+
+service GLogServier {
+    rpc GLog(GLogRequest) returns (GLogResponse);
+	// rpc HelloWorld(google.protobuf.Empty) returns (google.api.HttpBody) {
+	// 	option (google.api.http) = {
+	// 		get: "/helloworld"
+	// 	};
+	// }
+	// rpc Download(google.protobuf.Empty) returns (stream google.api.HttpBody) {
+	// 	option (google.api.http) = {
+	// 		get: "/download"
+	// 	};
+	// }
+}
